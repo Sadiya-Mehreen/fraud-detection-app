@@ -2,58 +2,49 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Fraud Detection App</title>
+  <title>Fraud Detection Project</title>
   <style>
-    body { font-family: Arial; margin: 2rem; background: #f2f2f2; }
-    h1 { color: #333; }
-    form { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px #ccc; }
-    input, select, button { margin-top: 10px; width: 100%; padding: 10px; font-size: 16px; }
-    .result { margin-top: 20px; font-weight: bold; }
+    body { font-family: Arial; margin: 2rem; background-color: #f8f9fa; color: #333; }
+    h1 { color: #222; }
+    section { margin-bottom: 2rem; }
+    a.button {
+      background: #007BFF;
+      color: white;
+      padding: 10px 20px;
+      text-decoration: none;
+      border-radius: 6px;
+      display: inline-block;
+      margin-top: 10px;
+    }
   </style>
 </head>
 <body>
-  <h1>💳 Fraud Detection Simulator</h1>
-  <form id="fraudForm">
-    <label>Step:</label>
-    <input type="number" name="step" required>
-    
-    <label>Transaction Type:</label>
-    <select name="type" required>
-      <option>PAYMENT</option>
-      <option>TRANSFER</option>
-      <option>CASH_OUT</option>
-      <option>DEBIT</option>
-      <option>CASH_IN</option>
-    </select>
+  <h1>💳 Online Fraud Detection Project</h1>
 
-    <label>Amount:</label>
-    <input type="number" name="amount" required>
+  <section>
+    <h2>📌 Project Overview</h2>
+    <p>This project uses machine learning to detect fraudulent online transactions. The model was trained on a dataset of financial transactions and predicts whether a given transaction is likely to be fraudulent.</p>
+  </section>
 
-    <label>Old Balance (Sender):</label>
-    <input type="number" name="oldbalanceOrg" required>
+  <section>
+    <h2>🛠 Technologies Used</h2>
+    <ul>
+      <li>Python</li>
+      <li>Pandas</li>
+      <li>Scikit-learn</li>
+      <li>Logistic Regression</li>
+      <li>Joblib (for model saving)</li>
+    </ul>
+  </section>
 
-    <label>New Balance (Sender):</label>
-    <input type="number" name="newbalanceOrig" required>
+  <section>
+    <h2>📁 GitHub Repository</h2>
+    <p>You can view the full source code and project files here:</p>
+    <a class="button" href="https://github.com/Sadiya-Mehreen/fraud-detection-app" target="_blank">View on GitHub</a>
+  </section>
 
-    <button type="submit">Predict Fraud</button>
-  </form>
-
-  <div class="result" id="resultArea"></div>
-
-  <script>
-    document.getElementById("fraudForm").addEventListener("submit", function(event) {
-      event.preventDefault();
-      const data = new FormData(event.target);
-      const amount = parseFloat(data.get("amount"));
-
-      // FAKE logic: if amount > 5000, pretend it's fraud
-      const isFraud = amount > 5000;
-      const result = isFraud
-        ? "⚠️ This transaction is likely FRAUDULENT!"
-        : "✅ This transaction seems SAFE.";
-
-      document.getElementById("resultArea").innerText = result;
-    });
-  </script>
+  <footer>
+    <p>© 2025 Sadiya Mehreen</p>
+  </footer>
 </body>
 </html>
